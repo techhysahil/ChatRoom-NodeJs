@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>ChatRoom</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form id="model_form">
+                    <div class="form-group">
+                        <label for="username">Welcome to chatroom</label>
+                        <input type="email" class="form-control" id="username" placeholder="Enter your namename...">
+                    </div>
+                    <button type="button" id="model_btn" class="btn btn-primary">Enter Chat Room</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Enter chat Section-->
+<div class="container-fluid">
+    <div class="col-md-3">
+        <ul id="connected_user">Connected User</ul>
+    </div>
+    <div class="col-md-9">
+        <ul id="messages"></ul>
+    </div>
+</div>
+<p id="user_typing"></p>
+<form id="type_msg" action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://localhost:3000/js/client.js"></script>
+</body>
+</html>
