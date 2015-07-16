@@ -17,11 +17,21 @@ $(document).ready(function(){
         $('#messages').append($('<li>').text(msg));
     });
     socket.on('new user', function(msg){
-        $('#messages').append($('<li>').text(msg + " " +"connected"));
-        $('#connected_user').append($('<li>').text(msg));
+        var connected_people = msg.people;
+        $('#messages').append($('<li>').text(msg.msg + " " +"connected"));
+        $('#connected_user').html("");
+        for(i=0;i<connected_people.length;i++){
+            $('#connected_user').append("<li>"+connected_people[i]+"</li>");
+        }
+
     });
     socket.on('user', function(msg){
-        $('#messages').append($('<li>').text(msg + " "+ "disconnected" ));
+        var people=msg.people;
+        $('#messages').append($('<li>').text(msg.name + " "+ "disconnected" ));
+        $('#connected_user').html("");
+        for(i=0;i<people.length;i++){
+            $('#connected_user').append("<li>"+people[i]+"</li>");
+        }
     });
     socket.on('user typing', function(msg){
         var typingTimer;
