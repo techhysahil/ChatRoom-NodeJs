@@ -1,16 +1,3 @@
-//Required module
-var express= require('express');
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var $ = require('jQuery');;
-
-//Variable
-var connected_people = [];
-
-//Load static files
-app.use(express.static('public'));
-
 //Add remove method to Javascript Prototype array
 Array.prototype.remove = function() {
     var what, a = arguments, L = a.length, ax;
@@ -22,6 +9,22 @@ Array.prototype.remove = function() {
     }
     return this;
 };
+
+/********* NODE JS APP*****************/
+
+//Required module
+var express= require('express');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var $ = require('jQuery');;
+
+//Variable
+var connected_people = [];
+
+
+//Load static files
+app.use(express.static('public'));
 
 //Made HTTP request on URL/ and respond with client.html in response
 app.get('/', function(req, res){
